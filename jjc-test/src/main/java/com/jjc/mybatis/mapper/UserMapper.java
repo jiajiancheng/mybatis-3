@@ -15,10 +15,10 @@
  */
 package com.jjc.mybatis.mapper;
 
-import com.jjc.mybatis.domain.UserDomain;
+import com.jjc.mybatis.domain.User;
 
 public interface UserMapper {
 
-  UserDomain selectById(Integer id);
+  User selectById(Integer id);
 
 }

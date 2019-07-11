@@ -5,15 +5,21 @@
 
 <mapper namespace="com.jjc.mybatis.mapper.UserMapper">
 
+    <resultMap id="userMap" type="com.jjc.mybatis.domain.User">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex" typeHandler="com.jjc.mybatis.typehandler.SexEnumTypeHandler"/>
+    </resultMap>
+
     <sql id="User_Column_List">
-        `id`, name
+        `id`, name, sex
     </sql>
 
-    <select id="selectById" resultType="com.jjc.mybatis.domain.UserDomain">
+    <select id="selectById" resultMap="userMap">
         select
         <include refid="User_Column_List"/>
         from user
-        where id = #{id}
+        where id = #{id, javaType=int, jdbcType=INTEGER}
     </select>
 
 </mapper>

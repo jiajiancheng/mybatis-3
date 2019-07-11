@@ -19,13 +19,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mapper/base/S1BaseMapper.xml"/>
-        <mapper resource="mapper/base/S2BaseMapper.xml"/>
-        <mapper resource="mapper/base/SingleTableBaseMapper.xml"/>
-
-        <mapper resource="mapper/S1Mapper.xml"/>
-        <mapper resource="mapper/S2Mapper.xml"/>
-        <mapper resource="mapper/SingleTableMapper.xml"/>
         <mapper resource="mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

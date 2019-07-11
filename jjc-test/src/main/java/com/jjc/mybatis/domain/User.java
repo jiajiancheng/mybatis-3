@@ -1,9 +1,12 @@
 package com.jjc.mybatis.domain;
 
-public class UserDomain {
+import com.jjc.mybatis.core.SexEnum;
+
+public class User {
 
     private Integer id;
     private String name;
+    private SexEnum sex;
 
     public Integer getId() {
         return id;
@@ -19,5 +22,13 @@ public class UserDomain {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public SexEnum getSex() {
+        return sex;
+    }
+
+    public void setSex(SexEnum sex) {
+        this.sex = sex;
     }
 }

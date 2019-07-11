@@ -53,9 +53,13 @@ import org.apache.ibatis.type.TypeHandler;
  */
 public class XMLConfigBuilder extends BaseBuilder {
 
+  // 是否解析过
   private boolean parsed;
+  // 解析mybatis-config.xml配置文件
   private final XPathParser parser;
+  // 默认default
   private String environment;
+  //负责创建和缓存Reflector对象
   private final ReflectorFactory localReflectorFactory = new DefaultReflectorFactory();
 
   public XMLConfigBuilder(Reader reader) {
@@ -96,6 +100,7 @@ public class XMLConfigBuilder extends BaseBuilder {
       throw new BuilderException("Each XMLConfigBuilder can only be used once.");
     }
     parsed = true;
+    // 在mybatis-config.xml配置文件中查找<configuration>节点，并开始解析
     parseConfiguration(parser.evalNode("/configuration"));
     return configuration;
   }
@@ -106,6 +111,7 @@ public class XMLConfigBuilder extends BaseBuilder {
       propertiesElement(root.evalNode("properties"));
       Properties settings = settingsAsProperties(root.evalNode("settings"));
       loadCustomVfs(settings);
+      // 别名
       typeAliasesElement(root.evalNode("typeAliases"));
       pluginElement(root.evalNode("plugins"));
       objectFactoryElement(root.evalNode("objectFactory"));
