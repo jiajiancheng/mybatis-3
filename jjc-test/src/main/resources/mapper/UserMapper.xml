@@ -9,7 +9,7 @@
         `id`, name
     </sql>
 
-    <select id="selectById" resultType="com.jjc.mybatis.domain.UserPO">
+    <select id="selectById" resultType="com.jjc.mybatis.domain.UserDomain">
         select
         <include refid="User_Column_List"/>
         from user

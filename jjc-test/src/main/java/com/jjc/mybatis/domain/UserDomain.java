@@ -1,6 +1,6 @@
 package com.jjc.mybatis.domain;
 
-public class UserPO {
+public class UserDomain {
 
     private Integer id;
     private String name;
