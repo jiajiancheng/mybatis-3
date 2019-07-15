@@ -26,6 +26,12 @@ public class InterceptorChain {
 
   private final List<Interceptor> interceptors = new ArrayList<Interceptor>();
 
+  /**
+   * Mybatis的插件。
+   * 它将构建一层层的动态代理对象，可以修改在调度真实的Executor方法之前执行配置插件的代码
+   * @param target
+   * @return
+   */
   public Object pluginAll(Object target) {
     for (Interceptor interceptor : interceptors) {
       target = interceptor.plugin(target);

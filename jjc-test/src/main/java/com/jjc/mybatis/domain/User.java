@@ -7,6 +7,7 @@ public class User {
     private Integer id;
     private String name;
     private SexEnum sex;
+    private String roleName;
 
     public Integer getId() {
         return id;
@@ -30,5 +31,13 @@ public class User {
 
     public void setSex(SexEnum sex) {
         this.sex = sex;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

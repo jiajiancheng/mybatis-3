@@ -1,0 +1,13 @@
+<resultMap>
+    <constructor>
+        <idArg/>
+        <arg/>
+    </constructor>
+    <id/>
+    <result/>
+    <association/>
+    <collection/>
+    <discriminator>
+        <case/>
+    </discriminator>
+</resultMap>

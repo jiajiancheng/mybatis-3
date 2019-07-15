@@ -6,13 +6,14 @@
 <mapper namespace="com.jjc.mybatis.mapper.UserMapper">
 
     <resultMap id="userMap" type="com.jjc.mybatis.domain.User">
-        <result property="id" column="id"/>
+        <result property="id" column="id" />
         <result property="name" column="name"/>
         <result property="sex" column="sex" typeHandler="com.jjc.mybatis.typehandler.SexEnumTypeHandler"/>
+        <result property="roleName" column="role_name"/>
     </resultMap>
 
     <sql id="User_Column_List">
-        `id`, name, sex
+        `id`, name, sex, role_name
     </sql>
 
     <select id="selectById" resultMap="userMap">

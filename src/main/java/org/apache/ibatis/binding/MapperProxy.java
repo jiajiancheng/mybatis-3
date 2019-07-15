@@ -47,6 +47,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
   @Override
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     try {
+      // 如果Mapper是一个JDK动态代理对象，那么就会运行到invoke方法
       if (Object.class.equals(method.getDeclaringClass())) {
         return method.invoke(this, args);
       } else if (isDefaultMethod(method)) {
@@ -55,6 +56,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     } catch (Throwable t) {
       throw ExceptionUtil.unwrapThrowable(t);
     }
+    // 如果Mapper是一个接口，不满足上面的条件，会生成一个MapperMethod对象。
     final MapperMethod mapperMethod = cachedMapperMethod(method);
     // 调用MapperMethod.execute方法执行sql语句
     return mapperMethod.execute(sqlSession, args);

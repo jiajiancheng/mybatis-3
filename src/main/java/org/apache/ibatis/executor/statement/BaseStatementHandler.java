@@ -85,8 +85,11 @@ public abstract class BaseStatementHandler implements StatementHandler {
     ErrorContext.instance().sql(boundSql.getSql());
     Statement statement = null;
     try {
+      // SQL预编译
       statement = instantiateStatement(connection);
+      // 超时设置
       setStatementTimeout(statement, transactionTimeout);
+      // 最大行数
       setFetchSize(statement);
       return statement;
     } catch (SQLException e) {

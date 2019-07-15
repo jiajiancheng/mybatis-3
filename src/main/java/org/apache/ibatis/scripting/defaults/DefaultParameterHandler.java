@@ -58,6 +58,10 @@ public class DefaultParameterHandler implements ParameterHandler {
     return parameterObject;
   }
 
+  /**
+   * 设置预编译SQL语句的参数
+   * @param ps
+   */
   @Override
   public void setParameters(PreparedStatement ps) {
     ErrorContext.instance().activity("setting parameters").object(mappedStatement.getParameterMap().getId());
@@ -84,6 +88,7 @@ public class DefaultParameterHandler implements ParameterHandler {
             jdbcType = configuration.getJdbcTypeForNull();
           }
           try {
+            // typeHandler对参数进行处理
             typeHandler.setParameter(ps, i + 1, value, jdbcType);
           } catch (TypeException e) {
             throw new TypeException("Could not set parameters for mapping: " + parameterMapping + ". Cause: " + e, e);
